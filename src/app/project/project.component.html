@@ -1,0 +1,154 @@
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Project Details</ng-template>
+
+        <mat-form-field>
+            <mat-select placeholder="Select" formControlName='organization'>
+              <mat-option *ngFor="let org of organization" value="{{org.name}}">{{org.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-select placeholder="Select" formControlName='category'>
+                <mat-option *ngFor="let cat of category" value="{{cat.name}}">{{cat.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Activity" formControlName="activity" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Title" formControlName="title" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Min Age" formControlName="min_age" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Max Age" formControlName="max_age" required>
+        </mat-form-field>
+
+        <div>
+          <button mat-button matStepperNext (click)="nextForm(firstFormGroup, 'next')">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Project Gallery</ng-template>
+        <mat-form-field>
+            <mat-select placeholder="Select" formControlName='project_name'>
+                <mat-option value="Project 1">Project 1</mat-option>
+                <mat-option value="Project 2">Project 2</mat-option>
+                <mat-option value="Project 3">Project 3</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Select File" formControlName="project_image" required>
+        </mat-form-field>
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext (click)="nextForm(secondFormGroup, 'next')">Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="thirdFormGroup">
+        <form [formGroup]="thirdFormGroup">
+          <ng-template matStepLabel>Project Costs</ng-template>
+          <mat-form-field>
+              <mat-select placeholder="Select" formControlName='project_name'>
+                <mat-option value="Project 1">Project 1</mat-option>
+                <mat-option value="Project 2">Project 2</mat-option>
+                <mat-option value="Project 3">Project 3</mat-option>
+              </mat-select>
+          </mat-form-field>
+  
+          <div class="project_cost_container">
+            <div class="cost-box">
+                <mat-form-field>
+                    <input matInput placeholder="Enter Week" formControlName="week" required>
+                </mat-form-field>
+    
+                <mat-form-field>
+                    <input matInput placeholder="Enter Cost" formControlName="cost" required>
+                </mat-form-field>
+            </div>
+ 
+            <br>
+            <button mat-flat-button color="accent">Add Row</button>
+          </div>
+  
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext (click)="nextForm(thirdFormGroup, 'next')">Next</button>
+          </div>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="fourthFormGroup">
+        <form [formGroup]="fourthFormGroup">
+          <ng-template matStepLabel>Project Includes</ng-template>
+          <mat-form-field>
+            <mat-select placeholder="Select" formControlName='project_name'>
+                <mat-option value="Project 1">Project 1</mat-option>
+                <mat-option value="Project 2">Project 2</mat-option>
+                <mat-option value="Project 3">Project 3</mat-option>
+              </mat-select>
+          </mat-form-field>
+  
+          <div class="project_include_container">
+            <mat-form-field>
+                <input matInput placeholder="Description" formControlName="inlcude_description" required>
+            </mat-form-field>
+
+            <mat-radio-group aria-label="Select an option" formControlName="inlcude">
+                <mat-radio-button value="Yes">Include</mat-radio-button>
+                <mat-radio-button value="No">Not Include</mat-radio-button>
+            </mat-radio-group>
+            <br>
+            <button mat-flat-button color="accent">Add Row</button>
+          </div>
+  
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext (click)="nextForm(fourthFormGroup, 'next')">Next</button>
+          </div>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="fifthFormGroup">
+        <form [formGroup]="fifthFormGroup">
+          <ng-template matStepLabel>Project Dates</ng-template>
+          <mat-form-field>
+            <mat-select placeholder="Select" formControlName='project_name'>
+                <mat-option value="Project 1">Project 1</mat-option>
+                <mat-option value="Project 2">Project 2</mat-option>
+                <mat-option value="Project 3">Project 3</mat-option>
+              </mat-select>
+          </mat-form-field>
+  
+          <div class="project_dates_container">
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="dates">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+              
+            <br>
+            <button mat-flat-button color="accent">Add Row</button>
+          </div>
+  
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="nextForm(fifthFormGroup,'submit')">Submit</button>
+          </div>
+        </form>
+    </mat-step>
+</mat-horizontal-stepper>
+  
