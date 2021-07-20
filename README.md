@@ -1,9 +1,14 @@
-# Tatva
+# Reactive Form (Multi step form) and Dynamic add/remove elements
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
 
 ## Backend
 There is a backend folder for api's. Just need to put folder under the local server.
+
+## Screenshots
+![details](https://user-images.githubusercontent.com/25032027/126370995-7d6485c5-b3b2-416f-a06c-a5ab811df38f.png)
+![multiple-image](https://user-images.githubusercontent.com/25032027/126371015-0a3ca0f3-2f02-466e-a9a4-f9632559b7f9.png)
+
 
 ## Development server
 
