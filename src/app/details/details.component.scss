@@ -1,0 +1,16 @@
+.row {
+    width: 100%;
+    position: relative;
+    display: inline-flex;
+}
+
+.row > .col-6 {
+    width: 50%;
+    padding: 5px 10px;
+    box-sizing: content-box;
+}
+
+.row > .col-4 {
+    width: 33.33%;
+    padding: 10px 15px;
+}

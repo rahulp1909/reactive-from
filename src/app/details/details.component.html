@@ -1,19 +1,33 @@
-<h1>Project Details</h1>
-<p>Organization: {{firstForm.organization}}</p>
-<p>Category: {{firstForm.category}}</p>
-<p>Activity: {{firstForm.activity}}</p>
-<p>Title: {{firstForm.title}}</p>
-<p>Min Age: {{firstForm.min_age}}</p>
-<p>Max Age: {{firstForm.max_age}}</p>
-
-<h1>Project Costs</h1>
-<p>Project Name: {{thirdForm.project_name}}</p>
-<p>Week: {{thirdForm.week}} Cost: {{thirdForm.cost}}</p>
-
-<h1>Project Include Checks</h1>
-<p>Project Name: {{fourthForm.project_name}}</p>
-<p>Week: {{fourthForm.inlcude_description}} Cost: {{fourthForm.inlcude}}</p>
-
-<h1>Project Dates</h1>
-<p>Project Name: {{fifthForm.project_name}}</p>
-<p>Dates: {{fifthForm.dates}}</p>
+<mat-card>
+    <mat-card-content>
+        <div class="row">
+            <div class="col-6">
+                <app-slider [slidesStore] = "secondForm.image_url"></app-slider>
+            </div>
+            <div class="col-6">
+                <h1>Project Details</h1>
+                <p><b>Organization</b> {{firstForm.organization}}   <b>Category:</b> {{firstForm.category}}</p>
+                <p><b>Activity:</b> {{firstForm.activity}}  <b>Title:</b> {{firstForm.title}}</p>
+                <p><b>Min Age:</b> {{firstForm.min_age}}  <b>Max Age:</b> {{firstForm.max_age}}</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-4">
+                <h1>Project Costs</h1>
+                <p>Project Name: {{thirdForm.project_name}}</p>
+                <p *ngFor="let weekCost of thirdForm.week_cost"><b>Week:</b> {{weekCost.week}}     <b>Cost:</b> {{weekCost.cost}}</p>
+            </div>
+            <div class="col-4">
+                <h1>Project Include Checks</h1>
+                <p>Project Name: {{fourthForm.project_name}}</p>
+                <p *ngFor="let include_d of fourthForm.include_description">Description: {{include_d.inlcude_description}} Include: {{include_d.inlcude}}</p>
+            </div>
+            <div class="col-4">
+                <h1>Project Dates</h1>
+                <p>Project Name: {{fifthForm.project_name}}</p>
+                <p *ngFor="let dates of fifthForm.dates">Dates: {{dates.date | date:'mediumDate'}}</p>
+            </div>
+        </div>       
+    </mat-card-content>
+</mat-card>
